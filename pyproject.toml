@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "basicami"
+dynamic = ["version"]
+description = "AsyncIO-based Asterisk Manager Interface (AMI) client for Python"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Andrius Kairiukstis", email = "k@andrius.mobi"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Telecommunications Industry",
+    "Topic :: Communications :: Internet Phone",
+    "Topic :: Communications :: Telephony",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Framework :: AsyncIO",
+]
+keywords = ["asterisk", "ami", "pbx", "telephony", "voip", "asyncio"]
+requires-python = ">=3.11"
+
+[project.urls]
+Homepage = "https://github.com/andrius/asterisk-basicami"
+Repository = "https://github.com/andrius/asterisk-basicami"
+Documentation = "https://github.com/andrius/asterisk-basicami/blob/main/README.md"
+"Bug Reports" = "https://github.com/andrius/asterisk-basicami/issues"
+
+[tool.setuptools]
+packages = ["basicami"]
+
+[tool.setuptools.dynamic]
+version = {attr = "basicami.__version__"}
+
+[tool.setuptools.package-data]
+basicami = ["*.py"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
