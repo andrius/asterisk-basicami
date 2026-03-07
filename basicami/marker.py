@@ -8,9 +8,7 @@ from dataclasses import dataclass, field
 
 # Matches structured Verbose markers.
 # Format: "    -- MARKER_NAME: context key=value key=value"
-_MARKER_RE = re.compile(
-    r"(?:^\s*(?:--\s*)?)?([A-Z][A-Z0-9_]+):\s+(\S+)\s*(.*)$"
-)
+_MARKER_RE = re.compile(r"(?:^\s*(?:--\s*)?)?([A-Z][A-Z0-9_]+):\s+(\S+)\s*(.*)$")
 
 # Matches individual key=value pairs.
 _KV_RE = re.compile(r"(\w+)=(\S+)")

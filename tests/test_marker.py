@@ -74,7 +74,10 @@ class TestMarkerTrace:
     def test_marker_names(self):
         t = self._make_trace()
         assert t.marker_names() == [
-            "SBC_ENTER", "SBC_ROUTE", "INBOUND_ENTER", "INBOUND_ROUTE"
+            "SBC_ENTER",
+            "SBC_ROUTE",
+            "INBOUND_ENTER",
+            "INBOUND_ROUTE",
         ]
 
     def test_has_marker(self):

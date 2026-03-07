@@ -53,9 +53,7 @@ class BasicAMI:
         )
 
         # Read AMI greeting line
-        greeting = await asyncio.wait_for(
-            ami._reader.readline(), timeout=timeout
-        )
+        greeting = await asyncio.wait_for(ami._reader.readline(), timeout=timeout)
         logger.debug("AMI greeting: %s", greeting.decode().strip())
 
         # Start background reader before login so we can receive the response
@@ -133,9 +131,7 @@ class BasicAMI:
         if async_:
             action["Async"] = "true"
         if variables:
-            action["Variable"] = ",".join(
-                f"{k}={v}" for k, v in variables.items()
-            )
+            action["Variable"] = ",".join(f"{k}={v}" for k, v in variables.items())
 
         return await self.send_action(action)
 
@@ -151,9 +147,7 @@ class BasicAMI:
 
         # Wait briefly for more
         try:
-            event = await asyncio.wait_for(
-                self._event_queue.get(), timeout=timeout
-            )
+            event = await asyncio.wait_for(self._event_queue.get(), timeout=timeout)
             events.append(event)
             # Drain any more that arrived
             while not self._event_queue.empty() and len(events) < max_events:
