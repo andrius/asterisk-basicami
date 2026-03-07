@@ -232,4 +232,7 @@ class BasicAMI:
             try:
                 self._event_queue.put_nowait(fields)
             except asyncio.QueueFull:
-                logger.warning("Event queue full, dropping event: %s", fields.get("Event"))
+                logger.warning(
+                    "Event queue full, dropping event: %s",
+                    fields.get("Event"),
+                )
